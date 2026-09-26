@@ -29,8 +29,9 @@
   function catCard(cat, L) {
     const can = L.can, avoid = L.avoid;
     return '<section class="dcat"><h2>' + esc(t("cat." + cat)) + "</h2>" +
-      '<h3 class="dcan">' + ICO_CAN + esc(t("diet.can")) + "</h3>" +
-      (can.length ? '<div class="dchips">' + can.map((x) => '<span class="dchip can">' + esc(C.foodName(x.food)) + (x.lowfat ? " · " + esc(t("chk.lowfat").split("—").pop().trim()) : "") + "</span>").join("") + "</div>" : '<p class="dnone">' + esc(t("diet.noneAllowed")) + "</p>") +
+      (can.length ? '<h3 class="dcan">' + ICO_CAN + esc(t("diet.can")) + "</h3>" +
+        '<div class="dchips">' + can.map((x) => '<span class="dchip can">' + esc(C.foodName(x.food)) + (x.lowfat ? " · " + esc(t("chk.lowfat").split("—").pop().trim()) : "") + "</span>").join("") + "</div>"
+        : '<p class="dnone">' + esc(t("diet.noneAllowed")) + "</p>") +
       '<hr><h3 class="dno">' + ICO_NO + esc(t("diet.cannot")) + "</h3>" +
       (avoid.length ? '<div class="dchips">' + avoid.map((x) => '<span class="dchip no" title="' + esc(t(x.reason)) + '">' + esc(C.foodName(x.food)) + "</span>").join("") + "</div>" : '<p class="dnone">' + esc(t("diet.noneAvoid")) + "</p>") +
       "</section>";

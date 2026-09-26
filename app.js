@@ -185,9 +185,9 @@
     const startsLine = n > 3 ? '<p class="muted">' + esc(t("home.starts", { date: C.fmtDate(C.addDays(d0, -3), { weekday: "long", day: "numeric", month: "long" }) })) + "</p>" : "";
     const todayIso = C.iso(C.today());
     const rows = [[3, "tl.lr"], [2, "tl.lr"], [1, "tl.dayBefore"], [0, "tl.dayOf"]].map(([off, key]) => {
-      const d = C.addDays(d0, -off), isNow = C.iso(d) === todayIso;
+      const d = C.addDays(d0, -off), isNow = C.iso(d) === todayIso, isPast = C.iso(d) < todayIso;
       const sub = off === 0 ? t("diet.dayLabel0") : t("diet.day" + (4 - off));
-      return '<div class="tl-row' + (isNow ? " now" : "") + '"><div class="tl-date"><b>' + esc(C.fmtDate(d, { day: "numeric", month: "short" })) + "</b>" + esc(C.fmtDate(d, { weekday: "short" })) + '</div><div class="tl-rail"><i></i><u></u></div><div class="tl-body"><h3>' + esc(t(key)) + (isNow ? ' <span class="pill blue">' + esc(t("tl.todayTag")) + "</span>" : "") + '</h3><p class="small muted">' + esc(sub) + "</p></div></div>";
+      return '<div class="tl-row' + (isNow ? " now" : isPast ? " past" : "") + '"><div class="tl-date"><b>' + esc(C.fmtDate(d, { day: "numeric", month: "short" })) + "</b>" + esc(C.fmtDate(d, { weekday: "short" })) + '</div><div class="tl-rail"><i></i><u></u></div><div class="tl-body"><h3>' + esc(t(key)) + (isNow ? ' <span class="pill blue">' + esc(t("tl.todayTag")) + "</span>" : "") + '</h3><p class="small muted">' + esc(sub) + "</p></div></div>";
     }).join("");
     const nd = C.nextDose(state.purg || {});
     const doseCard = nd ? '<button type="button" class="next-dose" data-go="purge" style="border:0;text-align:left"><span><span class="small" style="color:#DCE7FF">' + esc(t("home.nextDose")) + " · " + esc(t(nd.label)) + "</span><br><b>" + esc(C.fmtDateTime(nd.at)) + "</b></span>" + ICON.purge.replace("<svg", '<svg width="28" height="28"') + "</button>" : "";
