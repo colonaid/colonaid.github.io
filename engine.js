@@ -372,6 +372,10 @@
     return "• " + foodName(f) + " — " + label + (reason ? ". " + reason.replace(/\.$/, "") : "") + (mods.length ? " (" + mods.join(", ") + ")" : "") + (clear ? ". " + clear + "." : "");
   }
   const byId = (id) => window.CA_FOODS.find((f) => f.id === id);
+  // Symptoms and medicines must never reach the food lookup: its "avoid it for now" reads as "stop your medicine".
+  const RED_FLAG = /\b(pain(?!kill)|vomit|throw(?:ing)? up|bleed|bloody|blood in|faint|dizz|rash\b|swell|swollen|breathless|short of breath|fever|collapse|cramp)|痛|呕|想吐|吐了|出血|便血|流血|带血|头晕|晕倒|昏倒|皮疹|红疹|肿胀|浮肿|发烧|发热|呼吸困难|\b(sakit|muntah|berdarah|pendarahan|pengsan|pening|ruam|bengkak|sesak nafas|demam)\b|வலி|வாந்தி|இரத்தப்போக்கு|ரத்தப்போக்கு|மயக்க|வீக்க|காய்ச்சல்/i;
+  const MED_WORD = /\b(medicines?|medications?|meds|tablets?|pills?|drugs?|doses?|dosage|capsules?|injections?|jabs?|panadol|paracetamol|painkillers?|antibiotics?|inhalers?|vitamins?|fish oil|omega|ginkgo|thinners?)\b|药|藥|鱼油|保健|\b(ubat|pil)\b|மருந்து|மாத்திரை/i;
+  const isMedQ = (q) => MED_WORD.test(q) || MED_RULES.some(([k, re]) => k !== "supplement" && re.test(q.toLowerCase()));
   function localAnswer(q, state, faq) {
     const h = hospital(state.profile.hospital), pp = prefProfile(state.dietPref), hn = shortHospital(h);
     const lines = (ids) => ids.map(byId).filter(Boolean).map((f) => answerLine(f, h, pp)).join("\n");
@@ -393,7 +397,8 @@
       case 7: return t("la.tasteLead") + "\n• " + t("tip1") + "\n• " + t("tip2") + "\n• " + t("tip3");
       case 8: return lead + "\n" + lines(["milk", "yoghurt", "cheese", "soymilk"]);
     }
-    if (/\b(medicine|medication|dose|dosage|pill|tablet|drug|insulin|warfarin|metformin)\b|药|藥|ubat|மருந்து/i.test(q)) return t("la.scope");
+    if (RED_FLAG.test(q)) return t("tip4") + "\n" + (h.phone ? t("rd.call", { label: h.phoneLabel || h.name, phone: h.phone }) : t("rd.callGeneric"));
+    if (isMedQ(q)) return t("la.scope") + "\n" + t("med.generic");
     const fs = findFoods(q);
     if (!fs.length) return t("la.none", { hospital: hn });
     return lead + "\n" + fs.map((f) => answerLine(f, h, pp)).join("\n");
