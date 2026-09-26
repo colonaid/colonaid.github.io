@@ -329,5 +329,8 @@ window.CA_I18N.ms = {
   "diet.noneAllowed": "Anda tidak boleh makan apa-apa makanan dalam kategori ini.",
   "diet.noneAvoid": "Tiada makanan yang perlu dielakkan dalam kategori ini.",
   "diet.noDays": "Hari persediaan anda telah berlalu. Berikut senarai penuh sebagai rujukan.",
-  "st.pending": "Helaian hospital anda belum dimuatkan — memaparkan panduan daripada pakar pemakanan kami. Jika helaian hospital anda berkata lain, ikut helaian anda."
+  "st.pending": "Helaian hospital anda belum dimuatkan — memaparkan panduan daripada pakar pemakanan kami. Jika helaian hospital anda berkata lain, ikut helaian anda.",
+  "la.urgent": "Ini memerlukan bantuan perubatan, bukan aplikasi. Hubungi hospital anda sekarang, atau pergi ke Kecemasan. Dalam kecemasan, hubungi 995.",
+  "la.askDoctor": "Saya tidak dapat menjawab soalan tentang simptom atau ubat. Sila tanya doktor atau hospital anda.",
+  "la.outside": "Maaf, soalan itu di luar skop saya."
 };
