@@ -329,5 +329,8 @@ window.CA_I18N.en = {
   "diet.noneAllowed": "You are not allowed to eat any food in this category.",
   "diet.noneAvoid": "No foods listed to avoid in this category.",
   "diet.noDays": "Your prep days are over. Here is the full list for reference.",
-  "st.pending": "Your hospital's sheet isn't loaded yet — showing guidance from our dietitians. If your hospital's sheet says otherwise, follow your sheet."
+  "st.pending": "Your hospital's sheet isn't loaded yet — showing guidance from our dietitians. If your hospital's sheet says otherwise, follow your sheet.",
+  "la.urgent": "This needs medical help, not an app. Contact your hospital now, or go to A&E. In an emergency, call 995.",
+  "la.askDoctor": "I can't answer questions about symptoms or medicines. Please ask your doctor or your hospital.",
+  "la.outside": "Sorry, that's outside what I can help with."
 };

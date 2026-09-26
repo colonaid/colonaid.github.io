@@ -113,7 +113,7 @@
   function logHtml() {
     const s = A().state;
     const greet = '<div class="bubble bot">' + esc(t("ask.greet", { name: C.firstName(s.profile.name), hospital: A().hospLabel() })) + "</div>";
-    return greet + s.chat.map((m) => '<div class="bubble ' + (m.role === "user" ? "me" : "bot") + '">' + esc(clean(m.content)) + (m.local ? '<span class="src">' + esc(t("la.src")) + "</span>" : "") + "</div>").join("");
+    return greet + s.chat.map((m) => '<div class="bubble ' + (m.role === "user" ? "me" : "bot") + '">' + esc(clean(m.content)) + (m.local && m.src !== false ? '<span class="src">' + esc(t("la.src")) + "</span>" : "") + "</div>").join("");
   }
   V.ask = function () {
     const faqs = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => '<button type="button" class="chip" data-faq="' + i + '">' + esc(t("faq" + i)) + "</button>").join("");
@@ -135,9 +135,9 @@
     const bubble = document.createElement("div"); bubble.className = "bubble bot"; bubble.textContent = t("ask.thinking"); log.appendChild(bubble);
     bubble.scrollIntoView({ block: "nearest" });
     const local = () => {                                   // built-in answer from the hospital knowledge base
-      const ans = C.localAnswer(text, s, faq);
-      bubble.innerHTML = esc(ans) + '<span class="src">' + esc(t("la.src")) + "</span>";
-      s.chat.push({ role: "assistant", content: ans, local: true }); A().save();
+      const ans = C.localAnswer(text, s, faq), fromList = !C.answerKind || C.answerKind() === "food";
+      bubble.innerHTML = esc(ans) + (fromList ? '<span class="src">' + esc(t("la.src")) + "</span>" : "");
+      s.chat.push({ role: "assistant", content: ans, local: true, src: fromList }); A().save();
     };
     btn.textContent = t("ask.stop"); btn.type = "button"; btn.onclick = () => ctl && ctl.abort();
     try {
