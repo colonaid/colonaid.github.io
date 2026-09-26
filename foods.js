@@ -63,7 +63,7 @@ window.CA_FOODS = [
 
   // ---------- drinks (low-residue days) ----------
   { id: "kopio", c: "", n: ["Kopi-O / teh-O (no milk)", "咖啡乌 / 茶乌(不加奶)", "Kopi-O / teh-O (tanpa susu)", "கோப்பி-ஓ / தே-ஓ (பால் இல்லாமல்)"], m: "bk", cu: "cmi", t: [], r: "coffeetea" },
-  { id: "milo", c: "dairy", n: ["Milo", "美禄", "Milo", "மைலோ"], m: "bk", cu: "x", t: ["gluten"], r: "malted", mod: ["nomilkclear"] },
+  { id: "milo", c: "dairy", n: ["Milo", "美禄", "Milo", "மைலோ"], m: "bk", cu: "x", t: ["gluten", "dairy"], r: "malted", mod: ["nomilkclear"] },
   { id: "milk", c: "dairy", n: ["Milk", "牛奶", "Susu", "பால்"], m: "bk", cu: "x", t: ["dairy"], r: "dairy", mod: ["nomilkclear"] },
   { id: "soymilk", c: "dairy", n: ["Soy milk (strained)", "豆浆(过滤)", "Susu soya (ditapis)", "சோயா பால் (வடிகட்டியது)"], m: "bk", cu: "c", t: ["soy"], r: "soymilk", mod: ["nomilkclear"] },
   { id: "barley", c: "clear", n: ["Strained barley water", "过滤薏米水", "Air barli ditapis", "வடிகட்டிய பார்லி நீர்"], m: "k", cu: "c", t: ["gluten"], r: "ok" },
@@ -94,7 +94,7 @@ window.CA_FOODS = [
   { id: "potato", c: "grains", n: ["Potato (peeled, well-cooked)", "土豆(去皮、煮软)", "Kentang (dikupas, dimasak lembut)", "உருளைக்கிழங்கு (தோல் நீக்கி, நன்கு வேகவைத்து)"], m: "ld", cu: "x", t: [], r: "potato" },
   { id: "chocolate", c: "snacks", n: ["Plain chocolate", "原味巧克力", "Coklat kosong", "சாதா சாக்லேட்"], m: "s", cu: "x", t: ["dairy"], r: "ok" },
   { id: "soysauce", c: "sauces", n: ["Soy sauce / dark soy sauce", "酱油/黑酱油", "Kicap / kicap pekat", "சோயா சாஸ் / கருப்பு சோயா சாஸ்"], m: "", cu: "x", t: ["soy", "gluten"], r: "ok", mod: ["noveg"] },
-  { id: "ketchup", c: "sauces", n: ["Ketchup", "番茄酱", "Sos tomato", "கெட்சப்"], m: "", cu: "x", t: ["egg"], r: "ok", mod: ["smallportion"] },
+  { id: "ketchup", c: "sauces", n: ["Ketchup", "番茄酱", "Sos tomato", "கெட்சப்"], m: "", cu: "x", t: [], r: "ok", mod: ["smallportion"] },
   { id: "butter", c: "sauces", n: ["Butter or margarine spread", "牛油或人造牛油", "Mentega atau marjerin", "வெண்ணெய் / மார்கரின்"], m: "", cu: "x", t: ["dairy"], r: "butter" },
   { id: "kaya", c: "sauces", n: ["Kaya (thin spread)", "咖椰(薄涂)", "Kaya (sapuan nipis)", "காயா (மெல்லியதாக)"], m: "", cu: "cm", t: ["egg", "coconut"], r: "kaya" },
   { id: "sugar", c: "sauces", n: ["White sugar", "白糖", "Gula putih", "வெள்ளைச் சீனி"], m: "", cu: "x", t: [], r: "ok" },
@@ -115,7 +115,7 @@ window.CA_FOODS = [
   { id: "beefmutton", c: "protein", n: ["Beef / mutton (red meat)", "牛肉/羊肉(红肉)", "Daging lembu / kambing (daging merah)", "மாட்டிறைச்சி / ஆட்டிறைச்சி (சிவப்பு இறைச்சி)"], m: "", cu: "x", t: ["beef", "mutton", "meat"], r: "redmeat", why: "redmeat" },
   { id: "stuffedtofu", c: "protein", n: ["Tau pok / tofu stuffed with vegetables", "酿蔬菜的豆卜/豆腐", "Tau pok / tauhu disumbat sayur", "காய்கறி அடைத்த தவ் போக் / டோஃபு"], m: "", cu: "x", t: ["soy"], r: "avoid", why: "garnish" },
   { id: "kopic", c: "dairy", n: ["Kopi / teh with milk (kopi-C, teh-C, teh tarik)", "加奶咖啡/茶(咖啡C、茶C、拉茶)", "Kopi / teh susu (kopi-C, teh-C, teh tarik)", "பால் காபி / டீ (கோப்பி-சி, தே-சி, தே தாரிக்)"], m: "k", cu: "x", t: ["dairy"], r: "dairy" },
-  { id: "horlicks", c: "dairy", n: ["Horlicks", "好力克", "Horlicks", "ஹார்லிக்ஸ்"], m: "k", cu: "x", t: ["gluten"], r: "malted" },
+  { id: "horlicks", c: "dairy", n: ["Horlicks", "好力克", "Horlicks", "ஹார்லிக்ஸ்"], m: "k", cu: "x", t: ["gluten", "dairy"], r: "malted" },
   { id: "icecream", c: "dairy", n: ["Ice cream (plain)", "冰淇淋(原味)", "Aiskrim (kosong)", "ஐஸ்கிரீம் (சாதா)"], m: "s", cu: "x", t: ["dairy"], r: "dairy" },
   { id: "condensed", c: "dairy", n: ["Condensed / evaporated milk", "炼乳/淡奶", "Susu pekat / susu cair", "கண்டென்ஸ்டு / எவாப்பரேட்டட் பால்"], m: "k", cu: "x", t: ["dairy"], r: "dairy" },
   { id: "flavdairy", c: "dairy", n: ["Flavoured / fruit / nut dairy", "调味/水果/坚果奶制品", "Tenusu berperisa / buah / kacang", "சுவையூட்டிய / பழ / கொட்டை பால் பொருட்கள்"], m: "", cu: "x", t: ["dairy"], r: "avoid", why: "fruitveg" },
