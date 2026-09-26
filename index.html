@@ -255,7 +255,8 @@ table.logic td.hit { outline: 3px solid var(--ink); outline-offset: -3px; }
 .demo-phone svg { width: 22px; height: 22px; color: var(--blue); flex: none; }
 .demo-phone b { display: block; font-variant-numeric: tabular-nums; }
 .demo-phone small { color: var(--ink-3); font-size: .78rem; }
-@media (max-width: 380px) { .demo-phones { grid-template-columns: 1fr; } }
+/* Keep the full phone number on one line at common mobile widths. */
+@media (max-width: 480px) { .demo-phones { grid-template-columns: 1fr; } }
 .sms { background: #111827; color: #fff; border-radius: 16px; padding: 12px 14px; font-size: .95rem; box-shadow: 0 8px 24px rgba(11,31,63,.18); }
 .sms-from { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: #9CA3AF; margin-bottom: 4px; }
 .inp.otp { font-size: 1.6rem; letter-spacing: .5em; text-align: center; font-variant-numeric: tabular-nums; font-family: "Lexend", system-ui, sans-serif; }
